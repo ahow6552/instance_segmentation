@@ -1,0 +1,11 @@
+# 單階段 U-Net（跟 unet_instance_segmentation.ipynb 相同），當作比較基準
+model: single
+run_name: unet_instance
+
+encoder: resnet34
+
+input_size: [512, 384]
+batch_size: 8
+num_epochs: 40
+eval_every: 2
+num_workers: 4

@@ -1,0 +1,14 @@
+# Stacked U-Net（2 階段）。沒寫到的設定用 unet_instance/config.py 的 DEFAULTS
+model: stacked
+run_name: unet_instance_stacked
+
+encoder: resnet34
+stage2_encoder: resnet18
+stage1_loss_weight: 0.5
+stage1_init: null            # 例：best_unet_instance.pth（用單階段權重初始化 stage 1）
+
+input_size: [512, 384]
+batch_size: 8                # 顯存比單階段多約 6 成，OOM 就改 6 或 4
+num_epochs: 40
+eval_every: 2
+num_workers: 4
